@@ -33,6 +33,7 @@ defmodule Rumbl.Accounts.User do
     |> changeset(params)
     |> cast(params, [:password])
     |> validate_required(:password, min: 6, max: 100)
+    |> validate_length(:password, min: 6, max: 100)
     |> put_pass_hash()
   end
 end
