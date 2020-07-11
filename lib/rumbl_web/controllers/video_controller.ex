@@ -39,7 +39,7 @@ defmodule RumblWeb.VideoController do
     render(conn, "edit.html", video: video, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "video" => video_params}) do
+  def update(conn, %{"id" => id, "video" => video_params}, _current_user) do
     video = Multimedia.get_video!(id)
 
     case Multimedia.update_video(video, video_params) do
